@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: inventory-backend
+    runtime: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_USER
+        scope: general
+      - key: DB_PASSWORD
+        scope: secret
+      - key: DB_HOST
+        scope: general
+      - key: DB_PORT
+        value: 5432
+      - key: DB_NAME
+        scope: general
+      - key: PORT
+        value: 10000
+databases:
+  - name: inventory_db
+    databaseName: inventory_management
+    user: postgres
