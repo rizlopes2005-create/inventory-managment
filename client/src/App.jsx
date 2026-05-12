@@ -3,6 +3,10 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import AdminLayout from './components/AdminLayout'
 import Dashboard from './pages/admin/Dashboard'
 import Inventory from './pages/admin/Inventory'
+import PendingOrders from './pages/admin/PendingOrders'
+import AuditLogs from './pages/admin/AuditLogs'
+import Vendors from './pages/admin/Vendors'
+import Settings from './pages/admin/Settings'
 
 function App() {
   return (
@@ -14,6 +18,10 @@ function App() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="inventory" element={<Inventory />} />
+          <Route path="orders" element={<PendingOrders />} />
+          <Route path="logs" element={<AuditLogs />} />
+          <Route path="vendors" element={<Vendors />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
         
         {/* Placeholder for Officer & Vendor routes */}

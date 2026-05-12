@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Search, Filter, Plus, MoreVertical, ShieldAlert, CheckCircle2 } from 'lucide-react'
+import { Search, Filter, Plus, MoreVertical, ShieldAlert, CheckCircle2, Package } from 'lucide-react'
 
 export default function Inventory() {
   const [activeTab, setActiveTab] = useState('All');
@@ -93,7 +93,7 @@ export default function Inventory() {
                   <td className="p-4">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded bg-military-700 flex items-center justify-center overflow-hidden border border-military-600">
-                        <PackageCheck size={20} className="text-gray-400" />
+                        <Package size={20} className="text-gray-400" />
                       </div>
                       <div>
                         <p className="font-medium text-white">{item.name}</p>
