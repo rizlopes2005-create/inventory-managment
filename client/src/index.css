@@ -6,30 +6,9 @@
 
 @layer base {
   body {
-    @apply bg-military-900 text-slate-200 font-sans;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-wide text-white;
+    @apply bg-military-950 text-white font-inter;
   }
 }
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #0f172a;
-}
-::-webkit-scrollbar-thumb {
-  background: #374151;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #4b5563;
 }
 
 /* Base card styles */
