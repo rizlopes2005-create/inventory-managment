@@ -9,35 +9,29 @@
     @apply bg-military-950 text-white font-inter;
   }
 }
-}
 
-/* Base card styles */
-.military-card {
-  @apply bg-military-800 border border-military-700 rounded-xl overflow-hidden shadow-lg transition-all duration-300;
-}
+@layer components {
+  .card {
+    @apply bg-military-900 border border-military-700 rounded-xl p-4;
+  }
 
-.military-card:hover {
-  @apply border-military-700 shadow-xl;
-}
+  .btn-primary {
+    @apply bg-success text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition;
+  }
 
-/* Input fields */
-.military-input {
-  @apply w-full bg-military-900 border border-military-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-accent-safe focus:border-transparent transition-all;
-}
+  .btn-danger {
+    @apply bg-danger text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition;
+  }
 
-/* Buttons */
-.military-btn {
-  @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2;
-}
+  .badge-critical {
+    @apply bg-red-600 text-white text-xs px-2 py-1 rounded-full font-semibold;
+  }
 
-.military-btn-primary {
-  @apply bg-accent-safe hover:bg-green-600 text-white;
-}
+  .badge-high {
+    @apply bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-semibold;
+  }
 
-.military-btn-danger {
-  @apply bg-accent-critical hover:bg-red-600 text-white;
-}
-
-.military-btn-outline {
-  @apply border border-military-700 hover:bg-military-700 text-white;
+  .badge-normal {
+    @apply bg-green-600 text-white text-xs px-2 py-1 rounded-full font-semibold;
+  }
 }
