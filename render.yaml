@@ -3,24 +3,55 @@ services:
     name: inventory-backend
     runtime: node
     plan: free
-    buildCommand: cd server && npm install
+    branch: main
+    autoDeploy: true
+    buildCommand: cd server && npm ci
     startCommand: cd server && npm start
+    healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
         value: production
-      - key: DB_USER
-        scope: general
-      - key: DB_PASSWORD
-        scope: secret
-      - key: DB_HOST
-        scope: general
-      - key: DB_PORT
-        value: 5432
-      - key: DB_NAME
-        scope: general
       - key: PORT
         value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_USER
+        fromDatabase:
+          name: inventory-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: inventory-db
+          property: password
+      - key: DB_HOST
+        fromDatabase:
+          name: inventory-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: inventory-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: inventory-db
+          property: database
+
+  - type: web
+    name: inventory-frontend
+    runtime: static
+    plan: free
+    branch: main
+    autoDeploy: true
+    buildCommand: cd client && npm ci && npm run build
+    staticPublishPath: ./client/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
 databases:
-  - name: inventory_db
+  - name: inventory-db
     databaseName: inventory_management
-    user: postgres
+    user: inventory_user
+    plan: free
+    postgresMajorVersion: "15"
